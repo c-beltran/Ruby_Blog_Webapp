@@ -12,7 +12,11 @@
     <tr>
       <td><%= item.title %></td>
       <td><%= item.notes %></td>
-      <td><%= link_to 'Show', item_path(item) %></td>
+      <!--displays the number of votes the topic has-->
+      <td> <%= pluralize(item.votes.count, "") %> </td>
+      <!--creates the appropriate URL for the action we want to invoke-->
+      <td> <%= button_to 'like', upvote_item_path(item), method: :post %></td>
+      <!--<td><%= link_to 'Show', item_path(item) %></td>-->
       <td><%= link_to 'Edit', edit_item_path(item) %></td>
       <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
     </tr>

@@ -46,7 +46,13 @@ class ItemsController < ApplicationController
     
         redirect_to items_path
     end
-     
+     #this is for a user vote
+     def upvote
+        @item = Item.find(params[:id])
+        @item.votes.create
+        render 'new'
+    end
+    
      private
      def item_params
          params.require(:item).permit(:title, :notes)
