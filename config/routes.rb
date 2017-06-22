@@ -7,6 +7,8 @@ get 'welcome/index'
 
 get 'items/upvote'
 
+get 'welcome/link' 
+
 #A resource route maps a number of related requests to actions in a single controller.
 resources :items do
     member do

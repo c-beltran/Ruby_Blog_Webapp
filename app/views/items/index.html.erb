@@ -1,42 +1,89 @@
-<h1>Listing Todo Items</h1>
- 
-<!--<%= link_to 'New Item', new_item_path %> -->
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Time</th>
-  </tr>
- 
-  <% @items.each do |item| %>
-    <tr>
-      <td><%= item.title %></td>
-      <td><%= item.notes %></td>
-      <!--displays the number of votes the topic has-->
-      <td> <%= pluralize(item.votes.count, "") %> </td>
-      <!--creates the appropriate URL for the action we want to invoke-->
-      <td> <%= button_to 'like', upvote_item_path(item), method: :post %></td>
-      <!--<td><%= link_to 'Show', item_path(item) %></td>-->
-      <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Blog It</title>
+      <!--this is to include application.css-->
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      
+    </head>
+    <body>
+        <!--navigation bar start-->
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <%= link_to "Blog It", welcome_index_path, id: "logo" %>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to "Home", welcome_index_path %></li>
+                        <li><%= link_to "Submit your Post", controller: 'items'%></li>
+                        <li><%= link_to "Other Links", welcome_link_path %></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-<!--form to submit a new post-->
-<h1>New Item</h1>
-<%= form_for :item, url: items_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </p>
- 
-  <p>
-    <%= f.submit "Post" %>
-  </p>
-<% end %>
+        <!--form to submit a new post-->
+        <h1>New Item</h1>
+        <div class="well">
+        <%= form_for :item, url: items_path do |f| %>
+          <p>
+            <%= f.label :title %><br>
+            <%= f.text_field :title %>
+          </p>
+         
+          <p>
+            <%= f.label :notes %><br>
+            <%= f.text_area :notes %>
+          </p>
+         
+          <p>
+            <%= f.submit "Post" %>
+          </p>
+        <% end %>
+        </div>
+        <!--end of form-->
+
+       <!--start of list of posts-->
+        <h1>Listing Todo Items</h1>
+         
+        <table class="container">
+          <tr >
+            <th class="title_post">Post Title</th>
+            <th>notes</th>
+          </tr>
+         
+          <% @items.each do |item| %>
+            <tr class="well">
+              <td><%= item.title %></td>
+              <td><%= item.notes %></td>
+              <!--displays the number of votes the topic has-->
+              <td> <%= pluralize(item.votes.count, "") %> </td> 
+              <!--creates the appropriate URL for the action we want to invoke-->
+              <td> <%= button_to 'like', upvote_item_path(item), method: :post %></td>
+              <!--<td><%= link_to 'Show', item_path(item) %></td>-->
+              <td><%= link_to 'Edit', edit_item_path(item) %></td>
+              <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
+            </tr>
+          <% end %>
+        </table>
+        <!--end of post listing-->
+        
+        <!--start of footer-->
+        <footer class="footer">
+          <small>
+            This page was made with a lot of hard work and sleepless nights</a>
+            by <a href="#">Carlos Beltran</a>
+          </small>
+          <nav>
+            <ul>
+              <li><%= link_to "About",   '#' %></li>
+              <li><%= link_to "Contact", '#' %></li>
+              <li><a href="http://www.nydailynews.com/" target="_blank">News</a></li>
+            </ul>
+          </nav>
+        </footer>
+        <!--end of footer-->
+        
+    </body>
+  </html>

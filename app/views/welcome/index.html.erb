@@ -1,9 +1,55 @@
-<h1 id="welcome_head" >Hello and Welcome!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Blog It</title>
+      <!--this is to include application.css-->
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      
+    </head>
+    <body>
+        
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <%= link_to "Blog It", welcome_index_path, id: "logo" %>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to "Home", welcome_index_path %></li>
+                        <li><%= link_to "Submit your Post", controller: 'items'%></li>
+                        <li><%= link_to "Other Links", welcome_link_path %></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="container">
+            <%= yield %>
+        </div>
+        
+            <div class="center jumbotron">
+              <h1>Welcome to......</h1>
 
+             <p> HERE, YOU ARE FREE TO SPEAK YOUR MIND OUT!</p>
 
-<p> HERE, YOU ARE FREE TO SPEAK YOUR MIND OUT!</p>
+              <%= link_to "Submit your Post!", controller: 'items', class: "btn btn-lg btn-primary"  %>
+        </div>
+        
+        <%= link_to image_tag("http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/post-it-icon.png", alt: "Rails logo", :size => "100x100") %>
 
-
-<%= link_to 'My Todo List', controller: 'items' %>
-<!--this is to surf through pages, like <a> tags in html-->
-<!--<%= link_to 'go to new item', items_path %>-->
+        <footer class="footer">
+          <small>
+            This page was made with a lot of hard work and sleepless nights</a>
+            by <a href="#">Carlos Beltran</a>
+          </small>
+          <nav>
+            <ul>
+              <li><%= link_to "About",   '#' %></li>
+              <li><%= link_to "Contact", '#' %></li>
+              <li><a href="http://www.nydailynews.com/" target="_blank">News</a></li>
+            </ul>
+          </nav>
+        </footer>
+    
+    </body>
+</html>
