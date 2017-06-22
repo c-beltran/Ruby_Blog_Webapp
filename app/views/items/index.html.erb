@@ -1,0 +1,38 @@
+<h1>Listing Todo Items</h1>
+ 
+<!--<%= link_to 'New Item', new_item_path %> -->
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+  </tr>
+ 
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= item.notes %></td>
+      <td><%= link_to 'Show', item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Destroy', item_path(item), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<!--form to submit a new post-->
+<h1>New Item</h1>
+<%= form_for :item, url: items_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Post" %>
+  </p>
+<% end %>
