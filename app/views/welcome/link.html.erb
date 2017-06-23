@@ -1,23 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Blog It</title>
+      <!--this is to include application.css-->
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      
+    </head>
+    <body>
+        <!--navigation bar start-->
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <%= link_to "T i t t l e - T a t t l e", welcome_index_path, id: "logo" %>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to "Home", welcome_index_path %></li>
+                        <li><%= link_to "Submit your Post", controller: 'items'%></li>
+                        <li><%= link_to "Other Links", welcome_link_path %></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
+        <h1> Blog recommendatinos you may like </h1>
 
-<h1> These are blog recommendatinos you may like </h1>
-
-<div class="well">
-    
-    <div class="float">
-        <%= link_to image_tag("http://www.fmylife.com/images/favicon/FML-fb-310x310.png", alt: "Rails logo", :size => "200x200"), 'http://www.fmylife.com/' %>        
-    </div class="float2">
-        <%= link_to image_tag("http://www.kdnuggets.com/wp-content/uploads/mashable1.png", alt: "Rails logo", :size => "200x200" ), 'http://mashable.com/' %>
-    <div>
+        <div class="link_space">
+            
+            <div class=" well float">
+                <%= link_to image_tag("http://www.fmylife.com/images/favicon/FML-fb-310x310.png", alt: "FML logo", :size => "200x200"), 'http://www.fmylife.com/' %>        
+            </div >
+            
+            <div class="well float">
+                <%= link_to image_tag("http://www.kdnuggets.com/wp-content/uploads/mashable1.png", alt: "M logo", :size => "200x200" ), 'http://mashable.com/' %>
+            </div>
+                
+            <div class="well float">
+                <%= link_to image_tag("http://www.thesearchagency.co.uk/sites/default/files/styles/large/public/techcrunch-bio-logo-320x320.png?itok=YDoa_gHz", alt: "TC logo", :size => "200x200" ), 'http://mashable.com/' %>
+            </div>
+            
+            <div class="well float">
+                <%= link_to image_tag("https://pbs.twimg.com/profile_images/448427743533748224/aQr-Hq0W_400x400.png", alt: "M logo", :size => "200x200" ), 'http://mashable.com/' %>
+            </div>
+            
+            <div class="well float">
+                <%= link_to image_tag("https://lh4.googleusercontent.com/-hIc4M_isgXc/AAAAAAAAAAI/AAAAAAAAFbk/mygTVGWTeko/photo.jpg", alt: "M logo", :size => "200x200" ), 'http://mashable.com/' %>
+            </div>
+            
+        </div>
         
-    </div>
-    
-    <div>
+        <!--start of footer-->
+        <footer class="footer">
+          <small>
+            This page was made with a lot of hard work and sleepless nights</a>
+            by <a href="#">Carlos Beltran</a>
+          </small>
+          <nav>
+            <ul>
+              <li><%= link_to "About",   '#' %></li>
+              <li><%= link_to "Contact", '#' %></li>
+              <li><a href="http://www.nydailynews.com/" target="_blank">News</a></li>
+            </ul>
+          </nav>
+        </footer>
+        <!--end of footer-->
         
-    </div>
-    
-    <div>
-        
-    </div>
-    
-</div>
+    </body>
+</html>

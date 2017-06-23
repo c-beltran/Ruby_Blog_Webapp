@@ -1,15 +1,17 @@
 <!--#last page-->
-<h1 id="main_head">Your post has been saved!</h1>
-
-<p>
-  <strong>Todo:</strong>
-  <%= @item.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @item.notes %>
-</p> 
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back To Todo List', items_path %>
+  <div class="well">
+    <h1 id="main_head">Your post has been saved!</h1>
+    <div class="container-fluid">
+      <p style="color: #b8cdef;" >
+        <strong>Title:</strong>
+        <%= @item.title %>
+      </p>
+      <p style="color: #efb8d2;">
+        <strong>Body:</strong>
+        <%= @item.notes %>
+      </p>
+    </div>
+  </div>
+  
+  <div class="well edit_btn"><%= link_to 'Edit', edit_item_path(@item), {:style=>'color: #cccc08;'} %></div>
+  <div class="well like_btn"><%= link_to 'Back', items_path %></div>

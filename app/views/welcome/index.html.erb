@@ -12,7 +12,7 @@
         
         <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
-                <%= link_to "Blog It", welcome_index_path, id: "logo" %>
+                <%= link_to "T i t t l e - T a t t l e", welcome_index_path, id: "logo" %>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
                         <li><%= link_to "Home", welcome_index_path %></li>
@@ -27,14 +27,17 @@
             <%= yield %>
         </div>
         
-            <div class="center jumbotron">
-              <h1>Welcome to......</h1>
+            <div class="center jumbotron welc-pg">
+              <h1>Welcome to Tittle-Tattle</h1>
 
-             <p> HERE, YOU ARE FREE TO SPEAK YOUR MIND OUT!</p>
+             <p> Here, you are free to speak your mind out! Share with the rest of the world the great or not so great things you know. Don't worry, your identity
+             will not be shown. This is an unknown blog poster that not even you, are going to be able to recognize your own post lol</p>
+             
+             <h3> So what are your waiting for !?!?</h3>
 
-              <%= link_to "Submit your Post!", controller: 'items', class: "btn btn-lg btn-primary"  %> <br>
+              <%= link_to "Click me to enter Post!", controller: 'items', class: "btn btn-lg btn-primary"  %> <br>
               
-              <%= link_to image_tag("http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/post-it-icon.png", alt: "Rails logo", :size => "100x100"), controller: 'items' %>
+              <%= link_to image_tag("https://cdn.shopify.com/s/files/1/1061/1924/files/Speak_No_Evil_Monkey_Emoji.png?9898922749706957214", alt: "Rails logo", :size => "100x100"), controller: 'items' %>
         </div>
         
         <footer class="footer">

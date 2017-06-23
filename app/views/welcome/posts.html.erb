@@ -12,7 +12,7 @@
         <!--navigation bar start-->
         <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
-                <%= link_to "T i t t l e - T a t t l e", welcome_index_path, id: "logo" %>
+                <%= link_to "Blog It", welcome_index_path, id: "logo" %>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
                         <li><%= link_to "Home", welcome_index_path %></li>
@@ -23,39 +23,10 @@
             </div>
         </header>
 
-        <!--form to submit a new post-->
-        <h1>Time To Let Loose</h1>
-        <div class="well">
-        <div class="container-fluid center_form">
-          <%= form_for :item, url: items_path do |f| %>
-            <p>
-              <%= f.label "What is your Tattle", style: "color: #b8cdef; font-size: 130%;" %><br>
-              <%= f.text_field :title, style: "color: #b8cdef;" %>
-            </p>
-           
-            <p>
-              <%= f.label "Tell me your Tittle", style: "color: #efb8d2; font-size: 135%" %><br>
-              <%= f.text_area :notes, style: "color: #efb8d2;" %>
-            </p>
-           
-            <p>
-              <%= f.submit "Post" %>
-            </p>
-          <% end %>
-        </div>
-        </div>
-        <!--end of form-->
-
        <!--start of list of posts-->
-        <h1>What Others Have Shared</h1>
-         
-        <!--<table class="container">-->
-        <!--  <tr >-->
-        <!--    <th class="title_post">Post Title</th>-->
-        <!--    <th>notes</th>-->
-        <!--  </tr>-->
-         
-          <% @items.each do |item| %>
+        <h1>Listing Todo Items</h1>
+      
+          <%= @items.each do |item| %>
             <!--<tr class="well">-->
               <div class="well title_bg"><%= item.title %></div>
               
@@ -76,8 +47,6 @@
               <!--</tr>-->
               </div>
           <% end %>
-              
-        <!--</table>-->
         <!--end of post listing-->
         
         <!--start of footer-->
