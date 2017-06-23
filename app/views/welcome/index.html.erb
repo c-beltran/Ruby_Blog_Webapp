@@ -1,5 +1,58 @@
-<h1>Hello and Welcome!</h1>
-<%= link_to 'My Todo List', controller: 'items' %>
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Blog It</title>
+      <!--this is to include application.css-->
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      
+    </head>
+    <body>
+        
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <%= link_to "T i t t l e - T a t t l e", welcome_index_path, id: "logo" %>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to "Home", welcome_index_path %></li>
+                        <li><%= link_to "Submit your Post", controller: 'items'%></li>
+                        <li><%= link_to "Other Links", welcome_link_path %></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="container">
+            <%= yield %>
+        </div>
+        
+            <div class="center jumbotron welc-pg">
+              <h1>Welcome to Tittle-Tattle</h1>
 
-<!--this is to surf through pages, like <a> tags in html-->
-<!--<%= link_to 'go to new item', items_path %>-->
+             <p> Here, you are free to speak your mind out! Share with the rest of the world the great or not so great things you know. Don't worry, your identity
+             will not be shown. This is an unknown blog poster that not even you, are going to be able to recognize your own post lol</p>
+             
+             <h3> So what are your waiting for !?!?</h3>
+
+              <%= link_to "Click me to enter Post!", controller: 'items', class: "btn btn-lg btn-primary"  %> <br>
+              
+              <%= link_to image_tag("https://cdn.shopify.com/s/files/1/1061/1924/files/Speak_No_Evil_Monkey_Emoji.png?9898922749706957214", alt: "Rails logo", :size => "100x100"), controller: 'items' %>
+        </div>
+        
+        <footer class="footer">
+          <small>
+            This page was made with a lot of hard work and sleepless nights</a>
+            by <a href="#">Carlos Beltran</a>
+          </small>
+          <nav>
+            <ul>
+              <li><%= link_to "About",   '#' %></li>
+              <li><%= link_to "Contact", '#' %></li>
+              <li><a href="http://www.nydailynews.com/" target="_blank">News</a></li>
+            </ul>
+          </nav>
+        </footer>
+    
+    </body>
+</html>

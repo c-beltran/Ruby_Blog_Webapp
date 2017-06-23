@@ -1,18 +1,23 @@
-<h1>Edit Todo Item</h1>
-<%= form_for @item do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title%>
-  </p>
- 
-  <p>
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
 
-<%= link_to 'Back', items_path %>
+  <div class="well">
+     <h1>Edit Your Post</h1>
+        <div class="container-fluid center_form">
+          <%= form_for @item do |f| %>
+            <p>
+              <%= f.label :title, style: "color: #b8cdef;" %><br>
+              <%= f.text_field :title, style: "color: #b8cdef;" %>
+            </p>
+           
+            <p>
+              <%= f.label :body, style: "color: #efb8d2;" %><br>
+              <%= f.text_area :notes, style: "color: #efb8d2;" %>
+            </p>
+           
+            <p>
+              <%= f.submit "Update Post" %>
+            </p>
+          <% end %>
+        </div>
+        </div>
+  
+  <div class="well like_btn"><%= link_to 'Back', items_path %></div>
